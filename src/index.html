@@ -8,6 +8,44 @@
     <script rel="main.js"></script>
 </head>
 <body>
-    
+    <header>
+        <h1>Todo</h1>
+    </header>
+    <div id="content">
+        <div class="lists">
+            <ul>
+                <li><button class="list-selector">Regular list</button></li>
+                <li><button class="list-selector">Weekly</button></li>
+                <li><button class="list-selector">Projects</button></li>
+            </ul>
+        </div>
+        <div class="todos">
+            
+        </div>
+        <div class="sort">
+            <form action="">
+                <label for="search">
+                    Search todos:
+                    <input type="search" id="search" name="search">
+                </label>
+                <label for="date">
+                    Go to date:
+                    <input type="date" id="date" name="date">
+                </label>
+                <label for="temporary">
+                    Temporary:
+                    <select>
+                        <option value="test 1" selected="selected">Option 1</option>
+                        <option value="test 2">Option 2</option>
+                    </select>
+                </label>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div>
+            <p>Made by <a href="https://github.com/Studsministern">Eric Weidow</a></p>
+        </div>
+    </footer>
 </body>
 </html>
