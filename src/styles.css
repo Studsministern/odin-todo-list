@@ -1,0 +1,164 @@
+:root {
+    --color-lime-50: #f7fee7;
+    --color-lime-100: #ecfccb;
+    --color-lime-200: #d9f99d;
+    --color-lime-300: #bef264;
+    --color-lime-400: #a3e635;
+    --color-lime-500: #84cc16;
+    --color-lime-600: #65a30d;
+    --color-lime-700: #4d7c0f;
+    --color-lime-800: #3f6212;
+    --color-lime-900: #365314;
+
+    --clr-main: black;
+    --clr-secondary: white;
+    --clr-shadow: rgb(232, 232, 232);
+
+    --clr-interact: #6aac0f; /* Based on --color-lime-600 */
+    --clr-interact-hover: #81b829; /* Based on --color-lime-500 */
+    --clr-interact-active: var(--color-lime-500);
+    
+    --bg-clr-main: #FFF;
+    --bg-clr-secondary: #EEE;
+
+    --grid-gap: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    font: inherit;
+    color: inherit;
+}
+
+body {
+    min-height: 100vh;
+    font-size: 16px;
+    position: relative;
+    display: grid;
+    grid: "header"  min-content
+          "content" auto
+          "footer"  min-content
+          / auto;
+    background: var(--bg-clr-main);
+    color: var(--clr-main);
+}
+
+
+
+header {
+    grid-area: header;
+    position: sticky;
+    top: 0;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+
+
+#content {
+    grid-area: content;
+    display: grid;
+    grid: "lists todos sort" max-content
+          ".     .     ."    auto
+          / 15vw auto  15vw;
+    gap: var(--grid-gap);
+    padding: var(--grid-gap) 0;
+    background: var(--bg-clr-secondary);
+}
+
+#content > * {
+    background: var(--bg-clr-main);
+    height: max-content;
+    padding: var(--grid-gap) 0;
+}
+
+
+
+.lists {
+    grid-area: lists;
+}
+
+.lists button {
+    width: 100%;
+    padding: .3rem .5rem;
+    border: none;
+    cursor: pointer;
+    background: var(--bg-clr-main);
+}
+
+.lists button:hover {
+    background: var(--bg-clr-secondary);
+}
+
+
+
+.todos {
+    grid-area: todos;
+}
+
+
+
+.sort {
+    grid-area: sort;
+}
+
+.sort form label {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+footer {
+    grid-area: footer;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Coloring could be used for other buttons*/
+/*button {
+    background: var(--clr-interact);
+    color: var(--clr-secondary);
+}
+
+button:hover {
+    background: var(--clr-interact-hover);
+}
+
+button:active {
+    background: var(--clr-interact-active);
+}*/
+
+a {
+    color: var(--clr-interact);
+}
+
+a:hover {
+    color: var(--clr-interact-hover);
+}
+
+a:active {
+    color: var(--clr-interact-active);
+}
+
+
+
+ul {
+    list-style: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    gap: 1rem;
+}
