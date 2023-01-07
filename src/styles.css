@@ -22,6 +22,7 @@
     --bg-clr-secondary: #EEE;
 
     --grid-gap: 1rem;
+    --side-gap: 8vw;
 }
 
 * {
@@ -53,9 +54,8 @@ header {
     grid-area: header;
     position: sticky;
     top: 0;
-    padding: 1rem 0;
+    padding: 1rem calc(var(--side-gap) + 2 * var(--grid-gap));
     display: flex;
-    justify-content: center;
     font-weight: bold;
     font-size: 2rem;
 }
@@ -65,28 +65,39 @@ header {
 #content {
     grid-area: content;
     display: grid;
-    grid: "lists todos sort" max-content
-          ".     .     ."    auto
-          / 15vw auto  15vw;
+    grid: "lists            lists sort  sort" max-content
+          ".                todos todos ."    auto
+          / var(--side-gap) 1fr   1fr   var(--side-gap);
     gap: var(--grid-gap);
-    padding: var(--grid-gap) 0;
+    padding: var(--grid-gap);
     background: var(--bg-clr-secondary);
 }
 
 #content > * {
     background: var(--bg-clr-main);
-    height: max-content;
-    padding: var(--grid-gap) 0;
 }
 
 
 
 .lists {
     grid-area: lists;
+    display: flex;
+    align-items: center;
+}
+
+.lists ul {
+    flex: 1;
+    display: flex;
+    height: 100%;
+}
+
+.lists ul li {
+    flex: 1;
+    display: flex;
 }
 
 .lists button {
-    width: 100%;
+    flex: 1;
     padding: .3rem .5rem;
     border: none;
     cursor: pointer;
@@ -101,17 +112,20 @@ header {
 
 .todos {
     grid-area: todos;
+    padding: calc(var(--grid-gap) / 2) 0;
 }
 
 
 
 .sort {
     grid-area: sort;
+    padding: calc(var(--grid-gap) / 2) 0;
 }
 
 .sort form label {
     display: flex;
     flex-direction: column;
+    max-width: 100px;
 }
 
 
@@ -158,7 +172,6 @@ ul {
 
 form {
     display: flex;
-    flex-direction: column;
     padding: 0 1rem;
     gap: 1rem;
 }
