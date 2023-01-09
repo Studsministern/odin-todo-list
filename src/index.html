@@ -9,30 +9,30 @@
 </head>
 <body>
     <header>
-        <h1>Todo</h1>
-    </header>
-    <div id="content">
-        <div class="lists">
-            <ul>
-                <li><button class="list-selector">Regular list</button></li>
+        <h1>Todos</h1>
+
+        <div class="menu">
+            <ul class="lists">
+                <li><button class="list-selector">Today</button></li>
                 <li><button class="list-selector">Weekly</button></li>
                 <li><button class="list-selector">Projects</button></li>
             </ul>
-        </div>
-        <div class="todos">
-            
-        </div>
-        <div class="sort">
+    
             <form action="">
                 <label for="search">
-                    Search todos:
+                    Search: 
                     <input type="search" id="search" name="search">
                 </label>
-                <label for="date">
-                    Go to date:
-                    <input type="date" id="date" name="date">
-                </label>
+                <!-- <div>
+                    Go to:
+                    <label><input type="date" id="date" name="date"></label>
+                </div> -->
             </form>
+        </div>
+    </header>
+    <div id="content">
+        <div class="todos">
+            
         </div>
     </div>
     <footer>

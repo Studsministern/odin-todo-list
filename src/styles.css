@@ -21,7 +21,7 @@
     --bg-clr-main: #FFF;
     --bg-clr-secondary: #EEE;
 
-    --grid-gap: 1rem;
+    --gap: 1rem;
     --side-gap: 8vw;
 }
 
@@ -50,26 +50,80 @@ body {
 
 
 
+/* Header */
+
 header {
     grid-area: header;
     position: sticky;
     top: 0;
-    padding: 1rem calc(var(--side-gap) + 2 * var(--grid-gap));
+    padding: 1rem var(--side-gap);
     display: flex;
-    font-weight: bold;
-    font-size: 2rem;
+    justify-content: space-between;
+}
+
+/* Menu */
+header .menu {
+    display: flex;
+    align-items: flex-end;
+}
+
+header .menu ul {
+    display: flex;
+    height: 100%;
+}
+
+header .menu ul li {
+    display: flex;
+    align-items: flex-end;
+}
+
+header .menu button {
+    height: 100%;
+    flex: 1;
+    padding: 0 .5rem;
+    border: none;
+    cursor: pointer;
+    background: var(--bg-clr-main);
+    border-radius: .1rem;
+}
+
+header .menu button:hover {
+    background: var(--clr-interact-hover);
+    color: var(--clr-secondary);
+}
+
+header .menu button:active {
+    background: var(--clr-interact-active);
 }
 
 
 
+/* Form */
+form {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: var(--gap);
+    gap: var(--gap);
+}
+
+form input[type="search"] {
+    width: 100px;
+}
+
+form input#date {
+    width: 20.5px;
+    border: none;
+}
+
+
+
+/* Content */
+
 #content {
     grid-area: content;
-    display: grid;
-    grid: "lists            lists sort  sort" max-content
-          ".                todos todos ."    auto
-          / var(--side-gap) 1fr   1fr   var(--side-gap);
-    gap: var(--grid-gap);
-    padding: var(--grid-gap);
+    height: 100%;
+    padding: var(--gap) var(--side-gap);
     background: var(--bg-clr-secondary);
 }
 
@@ -77,58 +131,15 @@ header {
     background: var(--bg-clr-main);
 }
 
-
-
-.lists {
-    grid-area: lists;
-    display: flex;
-    align-items: center;
-}
-
-.lists ul {
-    flex: 1;
-    display: flex;
-    height: 100%;
-}
-
-.lists ul li {
-    flex: 1;
-    display: flex;
-}
-
-.lists button {
-    flex: 1;
-    padding: .3rem .5rem;
-    border: none;
-    cursor: pointer;
-    background: var(--bg-clr-main);
-}
-
-.lists button:hover {
-    background: var(--bg-clr-secondary);
-}
-
-
-
+/* Todos */
 .todos {
     grid-area: todos;
-    padding: calc(var(--grid-gap) / 2) 0;
+    padding: calc(var(--gap) / 2) 0;
 }
 
 
 
-.sort {
-    grid-area: sort;
-    padding: calc(var(--grid-gap) / 2) 0;
-}
-
-.sort form label {
-    display: flex;
-    flex-direction: column;
-    max-width: 100px;
-}
-
-
+/* Footer */
 
 footer {
     grid-area: footer;
@@ -138,19 +149,8 @@ footer {
 }
 
 
-/* Coloring could be used for other buttons*/
-/*button {
-    background: var(--clr-interact);
-    color: var(--clr-secondary);
-}
 
-button:hover {
-    background: var(--clr-interact-hover);
-}
-
-button:active {
-    background: var(--clr-interact-active);
-}*/
+/* Link highlighting */
 
 a {
     color: var(--clr-interact);
@@ -166,12 +166,13 @@ a:active {
 
 
 
-ul {
-    list-style: none;
+/* Elements */
+
+h1 {    
+    font-weight: bold;
+    font-size: 2rem;
 }
 
-form {
-    display: flex;
-    padding: 0 1rem;
-    gap: 1rem;
+ul {
+    list-style: none;
 }
