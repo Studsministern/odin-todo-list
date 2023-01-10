@@ -22,6 +22,7 @@
     --bg-clr-secondary: #EEE;
 
     --gap: 1rem;
+    --gap-button: .3rem;
     --side-gap: 8vw;
 }
 
@@ -77,23 +78,15 @@ header .menu ul li {
     align-items: flex-end;
 }
 
+/* Buttons */
 header .menu button {
     height: 100%;
     flex: 1;
-    padding: 0 .5rem;
+    padding: 0 calc(2 * var(--gap-button));
     border: none;
     cursor: pointer;
     background: var(--bg-clr-main);
     border-radius: .1rem;
-}
-
-header .menu button:hover {
-    background: var(--clr-interact-hover);
-    color: var(--clr-secondary);
-}
-
-header .menu button:active {
-    background: var(--clr-interact-active);
 }
 
 
@@ -150,8 +143,42 @@ footer {
 
 
 
-/* Link highlighting */
+/* Effects */
 
+/* Line effect */
+.underline {
+    transition: all .5s ease-in-out;
+    position: relative;
+}
+
+.underline::after {
+    position: absolute;
+    content: "";
+    width: calc(100% - 4 * var(--gap-button));
+    height: 2px;
+    bottom: calc(1.5 * var(--gap-button));
+    left: calc(2 * var(--gap-button));
+    background: var(--clr-interact-hover);
+    transition: transform 0.5s;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+
+  .underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Hover up effect */
+.hover-up {
+    transition: all .5s ease-in-out;
+}
+
+.hover-up:hover {
+    transform: translateY(calc(-0.4 * var(--gap-button)));
+}
+
+/* Link highlighting */
 a {
     color: var(--clr-interact);
 }
