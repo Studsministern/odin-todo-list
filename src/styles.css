@@ -1,3 +1,10 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+font-family: 'Marcellus', serif;*/
+/* &family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800 
+font-family: 'Montserrat Alternates', sans-serif;*/
+
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&display=swap');
+
 :root {
     --color-lime-50: #f7fee7;
     --color-lime-100: #ecfccb;
@@ -19,7 +26,7 @@
     --clr-interact-active: var(--color-lime-500);
     
     --bg-clr-main: #FFF;
-    --bg-clr-secondary: #EEE;
+    --bg-clr-secondary: #6aac0f;
 
     --gap: 1rem;
     --gap-button: .3rem;
@@ -47,6 +54,7 @@ body {
           / auto;
     background: var(--bg-clr-main);
     color: var(--clr-main);
+    font-family: 'Quattrocento', serif;
 }
 
 
@@ -58,14 +66,16 @@ header {
     position: sticky;
     top: 0;
     padding: 1rem var(--side-gap);
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr; 
+    background: var(--clr-interact);
+    color: var(--clr-secondary);
+    font-size: 1.1rem;
 }
 
 /* Menu */
 header .menu {
     display: flex;
-    align-items: flex-end;
 }
 
 header .menu ul {
@@ -85,7 +95,8 @@ header .menu button {
     padding: 0 calc(2 * var(--gap-button));
     border: none;
     cursor: pointer;
-    background: var(--bg-clr-main);
+    background: var(--clr-interact);
+    color: var(--clr-secondary);
     border-radius: .1rem;
 }
 
@@ -93,15 +104,26 @@ header .menu button {
 
 /* Form */
 form {
-    height: 100%;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    padding-left: var(--gap);
     gap: var(--gap);
 }
 
+form label[for="search"] {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
 form input[type="search"] {
-    width: 100px;
+    width: 15vw;
+    padding: .2em;
+    background: var(--bg-clr-main);
+    color: var(--clr-main);
+    outline: none;
+    border: 0;
+    border-radius: .2em;
 }
 
 form input#date {
@@ -117,11 +139,6 @@ form input#date {
     grid-area: content;
     height: 100%;
     padding: var(--gap) var(--side-gap);
-    background: var(--bg-clr-secondary);
-}
-
-#content > * {
-    background: var(--bg-clr-main);
 }
 
 /* Todos */
@@ -147,7 +164,7 @@ footer {
 
 /* Line effect */
 .underline {
-    transition: all .5s ease-in-out;
+    transition: transform .5s ease-in-out;
     position: relative;
 }
 
@@ -158,8 +175,8 @@ footer {
     height: 2px;
     bottom: calc(1.5 * var(--gap-button));
     left: calc(2 * var(--gap-button));
-    background: var(--clr-interact-hover);
-    transition: transform 0.5s;
+    background: var(--bg-clr-main);
+    transition: transform .5s;
     transform: scaleX(0);
     transform-origin: right;
   }
@@ -171,7 +188,7 @@ footer {
 
 /* Hover up effect */
 .hover-up {
-    transition: all .5s ease-in-out;
+    transition: transform .5s ease-in-out;
 }
 
 .hover-up:hover {
@@ -196,7 +213,7 @@ a:active {
 /* Elements */
 
 h1 {    
-    font-weight: bold;
+    font-weight: 700;
     font-size: 2rem;
 }
 
